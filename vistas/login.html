@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!--CSS-->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/login/styles.css" rel="stylesheet">
+
+
+    <style>
+        .whatsapp-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+    </style>
+</head>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/session-info')
+            .then(response => response.json())
+            .then(data => {
+                if (data.nombres) {
+                    // Ocultar el botón "Iniciar Sesión" y mostrar el nombre del usuario
+                    document.getElementById('login-btn').style.display = 'none';
+                    document.getElementById('user-names').textContent = `Hola, ${data.nombres}`;
+                    // Mostrar el botón "Cerrar Sesión"
+                    document.getElementById('cerrar-sesion-link').style.display = 'inline';
+                } else {
+                    // Mostrar el botón "Iniciar Sesión" si no hay usuario autenticado
+                    document.getElementById('login-btn').style.display = 'inline';
+                    // Ocultar el botón "Cerrar Sesión"
+                    document.getElementById('cerrar-sesion-link').style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error al obtener la información de la sesión:', error));
+    });
+
+    function cerrarSesion(event) {
+        event.preventDefault(); // Evitar la acción predeterminada del enlace
+        fetch('/logout') // Ruta para cerrar sesión
+            .then(response => {
+                if (response.ok) {
+                    // Redirigir a la página principal después de cerrar sesión
+                    window.location.href = '/';
+                } else {
+                    console.error('Error al cerrar sesión');
+                }
+            })
+            .catch(error => console.error('Error al cerrar sesión:', error));
+    }
+    function validatePassword(input) {
+    const password = input.value;
+    const warning = document.getElementById('passwordWarning');
+
+    // Verifica que la contraseña tenga entre 8 y 20 caracteres y cumpla con los requisitos
+    const isValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(password);
+    
+    if (!isValid) {
+        warning.style.display = 'block';
+    } else {
+        warning.style.display = 'none';
+    }
+}
+
+document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Evitar el envío del formulario por defecto
+    
+                const email = document.querySelector('input[name="correo"]').value;
+                const password = document.querySelector('input[name="contrasena"]').value;
+                const rol = document.querySelector('#rolSelect').value;
+    
+                // Validar si el correo corresponde al administrador
+                if (email === 'johanabernal080@gmail.com' && rol === 'administrador') {
+                    // Aquí puedes proceder a enviar el formulario
+                    this.submit(); // Envía el formulario
+                } else if (rol === 'cliente') {
+                    // Aquí puedes proceder a enviar el formulario para clientes
+                    this.submit(); // Envía el formulario
+                } else {
+                    alert('Acceso denegado.Este no es el correo del administrador.');
+                }
+            });
+</script>
+<body> 
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="/eventos" class="nav-item nav-link">Eventos</a>
+                    <a href="/servicios" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Reservar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block"></span>
+                <a href="/login" id="login-btn" class="btn btn-primary d-none d-lg-block">Iniciar Sesión</a>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3" style="font-size: 1rem; padding: 0.5rem 1rem;">Mis reservas</a>                
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+            </div>
+        </nav>
+    </div>
+
+     <br>
+
+<!-- Iniciar Sesión -->
+<div id="login-wrapper">
+    <div class="u-form u-radius-20 u-white u-form-1" id="loginForm" style="max-width: 400px;">
+        <form action="/login/autenticar" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;">
+            <h4 class="u-align-center u-form-group u-form-text u-text u-text-2">Iniciar sesión</h4>
+            
+            <div class="u-form-group u-form-name">
+                <label class="u-custom-font u-font-roboto u-label">Correo</label>
+                <input type="text" placeholder="Ingresa tu correo electrónico" name="correo" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="40" required>
+            </div>
+            
+            <div class="u-form-email u-form-group">
+                <label class="u-custom-font u-font-roboto u-label">Contraseña</label>
+                <div class="password-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Ingresa tu contraseña" name="contrasena" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="25" required>
+                    <span class="toggle-password">
+                        <i id="toggleIcon" class="fa fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+    
+            <div class="u-form-group u-form-name">
+                <label class="u-custom-font u-font-roboto u-label">Rol</label>
+                <select name="rol" id="rolSelect" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" required>
+                    <option value="cliente">Cliente</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+            </div>
+            
+            
+            <div class="u-align-right u-form-group u-form-submit">
+                <button class="boton enviar u-border-3 u-btn u-btn-round u-button-style u-custom-font u-radius u-btn-1">Ingresar</button>
+            </div>
+            
+            <p class="u-align-center">No tienes cuenta? <a href="#" id="showRegisterForm">Regístrate</a></p>
+            <p class="u-align-center"><a href="#" id="showForgotPasswordForm">¿Olvidaste tu contraseña?</a></p>
+        </form>
+    
+        </div>
+<!-- Formulario de Registro -->
+<div class="u-form u-radius-20 u-white u-form-1" id="registerForm" style="display: none; max-width: 600px; padding: 20px;">
+    <form action="/clientes/registro" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form">
+        <h4 class="u-align-center u-form-group u-form-text u-text u-text-2">Regístrate</h4>
+        
+        <div class="name-wrapper">
+            <div class="u-form-group u-form-name">
+                <label class="u-custom-font u-font-roboto u-label">Nombres</label>
+                <input type="text" placeholder="Ingresa tu nombre" name="nombres" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="25" required>
+            </div>
+            <div class="u-form-group u-form-name">
+                <label class="u-custom-font u-font-roboto u-label">Apellidos</label>
+                <input type="text" placeholder="Ingresa apellidos" name="apellidos" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="25" required>
+            </div>
+        </div>
+        
+        <div class="address-cell-wrapper">
+            <div class="u-form-group u-form-email">
+                <label class="u-custom-font u-font-roboto u-label">Dirección</label>
+                <input type="text" placeholder="Ingresa tu dirección" name="direccion" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="35" required>
+            </div>
+            <div class="u-form-group u-form-email">
+                <label class="u-custom-font u-font-roboto u-label">Celular</label>
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" placeholder="Ingresa tu número de celular" name="celular" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" title="El número debe tener 10 dígitos" maxlength="11" required>
+            </div>
+        </div>
+
+        <div class="email-password-wrapper">
+            <div class="u-form-group u-form-email">
+                <label class="u-custom-font u-font-roboto u-label">Correo</label>
+                <input type="email" placeholder="Ingresa tu correo electrónico" name="correo" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="30" required>
+            </div>
+            <div class="u-form-group">
+                <label class="u-custom-font u-font-roboto u-label">Contraseña</label>
+                <div class="password-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Ingresa una contraseña" name="contrasena" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="15" required>
+                    <span class="toggle-password">
+                        <i id="toggleIcon" class="fa fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+         <!-- Selección de rol -->
+         <div class="u-form-group">
+            <label class="u-custom-font u-font-roboto u-label">Rol</label>
+            <select name="rol" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" required id="rolSelect">
+                <option value="cliente">Cliente</option>
+                <option value="administrador">Administrador</option>
+            </select>
+        </div>
+
+        <div class="u-align-right u-form-group u-form-submit">
+            <button type="submit" class="boton enviar u-border-3 u-btn u-btn-round u-button-style u-custom-font u-radius u-btn-1">Registrarse</button>
+        </div>
+        <p class="u-align-center">¿Ya tienes cuenta? <a href="#" id="showLoginForm">Inicia sesión</a></p>
+    </form>
+</div>
+
+<script>
+    // Suponiendo que tienes una variable en la sesión que indica si el usuario es administrador principal
+    // Ejemplo: adminLoggedIn es una variable que contiene un booleano
+    const adminLoggedIn = true; // Este valor debería venir del backend o de la sesión del usuario.
+
+    // Verificamos si el administrador está logueado y si es el principal
+    if (!adminLoggedIn) {
+        // Si no es el administrador principal, ocultamos la opción de "Administrador"
+        const rolSelect = document.getElementById('rolSelect');
+        const optionAdmin = rolSelect.querySelector('option[value="administrador"]');
+        if (optionAdmin) {
+            optionAdmin.style.display = 'none'; // Ocultamos la opción de "Administrador"
+        }
+    }
+</script>
+
+  <!--Olvidar contraseña-->
+  <div class="u-form u-radius-20 u-white u-form-1" id="forgotPasswordForm" style="display: none;">
+    <form action="/clientes/recuperar-contrasena" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 23px;">
+        <h4 class="u-align-center u-form-group u-form-text u-text u-text-2">Recuperar Contraseña</h4>
+        <div class="u-form-group u-form-email">
+            <div class="u-form-group u-form-email">
+                <label class="u-custom-font u-font-roboto u-label">Correo</label>
+                <input type="email" placeholder="Ingresa tu correo electrónico" name="correo" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="40" required>
+            </div>
+            <label class="u-custom-font u-font-roboto u-label">Nueva contraseña</label>
+            <div class="password-wrapper">
+                <input type="password" placeholder="Nueva contraseña" name="nueva_contrasena" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="15" required>
+                <span class="toggle-password">
+                    <i id="toggleIcon" class="fa fa-eye"></i>
+                </span>
+            </div>
+        </div>
+        <div class="u-form-group u-form-email">
+            <label class="u-custom-font u-font-roboto u-label">Vuelve a escribir la contraseña</label>
+            <div class="password-wrapper">
+                <input type="password" placeholder="Vuelve a escribir la contraseña" name="repita_contrasena" class="u-border-2 u-border-grey-10 u-grey-10 u-input u-input-rectangle u-radius-10" maxlength="15" required>
+                <span class="toggle-password">
+                    <i id="toggleIcon" class="fa fa-eye"></i>
+                </span>
+            </div>
+        </div>
+        <div class="u-align-right u-form-group u-form-submit">
+            <button class="boton enviar u-border-3 u-btn u-btn-round u-button-style u-custom-font u-radius u-btn-1">Guardar</button>
+        </div>
+        <p class="u-align-center">¿Recordaste tu contraseña? <a href="#" id="showLoginFormFromForgot">Inicia sesión</a></p>
+    </form>
+</div>
+</div>
+  
+      <!-- Footer -->
+<div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+    <div class="container pt-0">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                </a>
+                <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa-Boyacá, Colombia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                <!-- Mapa de Google -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Termina -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="/https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/counterup/counterup.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="/mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/login/ini.js"></script>
+
+</body>
+
+</html>

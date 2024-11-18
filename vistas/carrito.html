@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .whatsapp-btn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #25d366;
+            color: rgb(110, 42, 42);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* Updated styles for the centered event information section */
+        .event-info-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+        }
+        .event-info-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #c5a44f;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .event-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .event-info-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .event-info-card:hover {
+            transform: translateY(-5px);
+        }
+        .event-info-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .event-info-content {
+            padding: 1.5rem;
+        }
+        .event-info-title-small {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #c5a44f;
+            margin-bottom: 0.5rem;
+        }
+        .event-info-text {
+            font-size: 0.9rem;
+            color: #6c757d;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-lin-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card-header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-bottom: 2px solid #c5a44f;
+        }
+        .card-title {
+            color: #c5a44f;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-text {
+            color: #666;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .cart-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item h4 {
+            margin: 0;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .total-amount {
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-container {
+    margin-top: 80px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.navbar {
+    position: fixed; /* Fija el navbar en la parte superior */
+    top: 0;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    z-index: 1000; /* Mantiene el navbar por encima de otros elementos */
+}
+
+.cart-container {
+    margin-top: 100px; /* Ajusta este valor según la altura de tu navbar */
+    padding: 20px; /* Espacio interno para el carrito */
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0.beta3/css/all.min.css">
+ </head>
+
+<body>
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="/eventos" class="nav-item nav-link">Eventos</a>
+                    <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Cotizar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block"></span>
+                <a href="/login" id="login-btn" class="btn btn-primary d-none d-lg-block">Iniciar Sesión</a>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3" style="font-size: 1rem; padding: 0.5rem 1rem;">Mis reservas</a>
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div class="cart-container">
+        <h1 class="cart-header">Carrito de Compras</h1>
+        <div id="cartContainer"></div>
+        <div class="total-amount" id="totalAmount">Total: $0 COP</div>
+        <div class="button-row">
+            <button class="button" onclick="redirectToCotizar()">Hacer Reservar</button>
+            <button class="btn-danger" onclick="removeFromCart()">Vaciar Carrito</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function redirectToCotizar() {
+    window.location.href = 'cotizar.html'; // Redirige a la página cotizar.html
+}
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartContainer = document.getElementById('cartContainer');
+            const totalAmount = document.getElementById('totalAmount');
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = '<p>No hay productos en el carrito.</p>';
+            } else {
+                let total = 0;
+                cartItems.forEach((item) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item');
+                    itemElement.innerHTML = `
+                        <h4>${item.name} - $${item.price}</h4>
+                        <button class="btn-danger" onclick="removeItem('${item.name}')">Eliminar</button>
+                    `;
+                    cartContainer.appendChild(itemElement);
+                    total += item.price;
+                });
+                totalAmount.innerHTML = `Total: $${total} COP`;
+            }
+        });
+
+        function removeItem(itemName) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const updatedItems = cartItems.filter(item => item.name !== itemName);
+            localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+            location.reload();
+        }
+
+        function removeFromCart() {
+            localStorage.removeItem('cartItems');
+            location.reload(); 
+        }
+
+        function checkout() {
+            alert("Procediendo a la compra.");
+            // Aquí puedes agregar la lógica para redirigir a la página de pago
+        }
+    </script>
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            let totalPrice = 0;
+    
+            // Limpiar el contenedor de items del carrito
+            cartItemsContainer.innerHTML = '';
+    
+            // Mostrar los productos en el carrito
+            cart.forEach((item, index) => {
+                totalPrice += item.price;
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <h3>${item.name}</h3>
+                        <p>Precio: $${item.price}</p>
+                    </div>
+                `;
+            });
+    
+            // Mostrar el total
+            document.getElementById('total-price').innerText = `Total: $${totalPrice}`;
+        }
+    
+        // Ejecutar la función al cargar la página
+        window.onload = displayCart;
+    </script>
+    
+
+       <!-- Footer -->
+<div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+    <div class="container pt-0">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                </a>
+                <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa-Boyacá, Colombia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                <!-- Mapa de Google -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Termina -->

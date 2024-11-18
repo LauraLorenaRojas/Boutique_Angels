@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 150vh; 
+        }
+        .whatsapp-btn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .gallery-section {
+            padding: 40px 20px;
+            flex-grow: 1;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c5a44f 0%, #c5a44f 99%, #c5a44f 100%);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-content {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .gallery-title {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .gallery-description {
+            margin: 0;
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item img {
+                height: 300px;
+            }
+            .gallery-title {
+                font-size: 20px;
+            }
+            .gallery-description {
+                font-size: 14px;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 0 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-info {
+            flex: 1;
+            max-width: 500px;
+            margin-right: 30px;
+        }
+
+        .footer-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .footer-title span {
+            color: #c5a44f;
+        }
+
+        .footer-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-contact {
+            margin-bottom: 20px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #c5a44f;
+            color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .footer-social a:hover {
+            background-color: #a88c3f;
+        }
+
+        .footer-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="/eventos" class="nav-item nav-link">Eventos</a>
+                    <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Cotizar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block"></span>
+                <a href="/login" id="login-btn" class="btn btn-primary d-none d-lg-block">Iniciar Sesión</a>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3" style="font-size: 1rem; padding: 0.5rem 1rem;">Mis reservas</a>                
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+            </div>
+        </nav>
+    </div>
+
+   <!-- Gallery Section --> 
+   <div style="height: 50px;"></div>
+   <section class="gallery-section">
+    <div class="container">
+        <h2 class="text-center mb-5">Opciones de sonido</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/djj.PNG" alt="Imagen 1">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">DJ</h2>
+                    <p class="gallery-description">Los DJs para fiestas suelen ofrecer sets de aproximadamente 3 a 4 horas, durante los cuales pueden mezclar entre 40 y 60 canciones. Su repertorio abarca una variedad de géneros, desde pop y reggaetón hasta clásicos de fiesta.</p>
+                    <button class="btn btn-outline-primary" id="addToCartDJ" onclick="addToCart(event, 'DJ', 300000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/parranda.PNG" alt="Imagen 2">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Parranda Vallenata</h2>
+                    <p class="gallery-description">La parranda vallenata generalmente dura entre 2 horas. Durante este tiempo, el grupo tocará aproximadamente entre 15 a 20 canciones.</p>
+                    <button class="btn btn-outline-primary" id="addToCartVallenato" onclick="addToCart(event, 'Parranda Vallenata', 250000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/mariachi.PNG" alt="Imagen 3">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Mariachis</h2>
+                    <p class="gallery-description">Los mariachis actúan durante un período de 1 hora. En ese tiempo, pueden interpretar entre 10 canciones.</p>
+                    <button class="btn btn-outline-primary" id="addToCartMariachi" onclick="addToCart(event, 'Mariachis', 200000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Carranga.PNG" alt="Imagen 4">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Grupo de Carranga</h2>
+                    <p class="gallery-description">El grupo de carranga suele tocar entre 2 horas, dependiendo del evento. Durante este tiempo, pueden interpretar entre 15 a 25 canciones.</p>
+                    <button class="btn btn-outline-primary" id="addToCartCarranga" onclick="addToCart(event, 'Grupo de Carranga', 220000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/norteño.PNG" alt="Imagen 5">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Grupo Norteño</h2>
+                    <p class="gallery-description">Los grupos norteños suelen ofrecer presentaciones de aproximadamente 2 horas, donde interpretan entre 15 y 25 canciones.</p>
+                    <button class="btn btn-outline-primary" id="addToCartNorteno" onclick="addToCart(event, 'Grupo Norteño', 240000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/orquesta.PNG" alt="Imagen 6">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Orquesta Sinfónica</h2>
+                    <p class="gallery-description">Una orquesta sinfónica ofrece conciertos que generalmente duran entre una hora y media o 2 horas.</p>
+                    <button class="btn btn-outline-primary" id="addToCartOrquesta" onclick="addToCart(event, 'Orquesta Sinfónica', 500000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/show.PNG" alt="Imagen 7">
+                <div class="gallery-content">
+                    <h2 class="gallery-title">Show Recreativo</h2>
+                    <p class="gallery-description">Los shows recreativos suelen durar entre 1 y 2 horas y están diseñados para entretener a una amplia variedad de edades.</p>
+                    <button class="btn btn-outline-primary" id="addToCartShow" onclick="addToCart(event, 'Show Recreativo', 150000)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Añadir al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+    <div class="container pt-0">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                </a>
+                <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa-Boyacá, Colombia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                <!-- Mapa de Google -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Termina -->
+
+<script>
+// Función para agregar productos al carrito
+function addToCart(event, productName, productPrice) {
+    // Recuperar el carrito actual
+    let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Crear el nuevo producto
+    const product = {
+        name: productName,
+        price: productPrice,
+        quantity: 1
+    };
+
+    // Verificar si el producto ya está en el carrito
+    const existingProductIndex = cart.findIndex(item => item.name === productName);
+    if (existingProductIndex > -1) {
+        // Si ya existe, incrementar la cantidad
+        cart[existingProductIndex].quantity += 1;
+    } else {
+        // Si no existe, agregarlo al carrito
+        cart.push(product);
+    }
+
+    // Almacenar la lista actualizada en localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+
+    // Redirigir a la página del carrito
+    window.location.href = 'carrito.html';
+}
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/session-info')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nombres) {
+                        document.getElementById('login-btn').style.display = 'none';
+                        document.getElementById('user-names').textContent = `Hola, ${data.nombres}`;
+                        document.getElementById('cerrar-sesion-link').style.display = 'inline';
+                    } else {
+                        document.getElementById('login-btn').style.display = 'inline';
+                        document.getElementById('cerrar-sesion-link').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error al obtener la información de la sesión:', error));
+        });
+
+        function cerrarSesion(event) {
+            event.preventDefault();
+            fetch('/logout')
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/';
+                    } else {
+                        console.error('Error al cerrar sesión');
+                    }
+                })
+                .catch(error => console.error('Error al cerrar sesión:', error));
+        }
+    </script>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

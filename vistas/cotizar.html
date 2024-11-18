@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/cotizar/coti.css" rel="stylesheet">
+
+    <style>
+        .whatsapp-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+    </style>
+</head>
+
+<body>
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="/eventos" class="nav-item nav-link">Eventos</a>
+                    <a href="/servicios" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Reservar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block"></span>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3" style="font-size: 1rem; padding: 0.5rem 1rem;">Mis reservas</a>                
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+            </div>
+        </nav>
+    </div>
+        
+    <br>
+    <br>
+
+<!--Formulario Cotizar-->
+<div id="login-wrapper">
+    <div class="container formulario-cotizador">
+        <h1>Reserva</h1>
+        <form id="cotizador-form" action="/cotizar" method="POST">
+            <div class="form-group flex-container">
+                <div class="form-group">
+                    <label for="personas">Cantidad de Personas</label>
+                    <input type="number" id="personas" name="personas" class="small-input" value="1" min="1" max="300" maxlength="3" required>
+                    <span id="personas-error" class="error-message" style="display:none; color: red;">El número máximo de personas es 300</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="evento">Eventos</label>
+                    <select id="evento" name="evento" required>
+                        <option value="" disabled selected hidden>Seleccionar Evento</option>
+                        <option value="quinceanos">Quinceaños</option>
+                        <option value="boda">Boda</option>
+                        <option value="comunion">Primera Comunión</option>
+                        <option value="babyShower">Baby Shower</option>
+                        <option value="grados">Grados</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group flex-container">
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" min="2024-10-01" max="2025-12-31" required onchange="changeDateStyle()">
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" name="hora" required onchange="validateTime(); changeTimeStyle()">
+                    <div id="timeError" style="color: red; display: none;">Horas disponibles solo: 6 p.m, 7 p.m o 8 p.m.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="buffet">Catering</label>
+                <select id="buffet" name="buffet" required>
+                    <option value="" disabled selected hidden>Seleccionar Buffet</option>
+                </select>
+                <div id="buffet-options" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="arroz">Tipo de Arroz</label>
+                            <select id="arroz" name="arroz" required>
+                                <option value="" disabled selected hidden>Seleccionar Arroz</option>
+                                <option value="Arroz blanco">Arroz Blanco</option>
+                                <option value="Arroz con Verduras">Arroz con Verduras</option>
+                                <option value="Arroz con Coca Cola">Arroz con Coca Cola</option>
+                                <option value="Arroz Verde">Arroz Verde</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="carne">Tipo de Carne</label>
+                            <select id="carne" name="carne" required>
+                                <option value="" disabled selected hidden>Seleccionar Carne</option>
+                                <option value="Pollo con salsa de champiñones">Pollo con salsa de champiñones</option>
+                                <option value="Carne de Res">Carne de Res</option>
+                                <option value="Cerdo agridulce">Cerdo agridulce</option>
+                                <option value="Pechuga rellena">Pechuga rellena</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bebida">Tipo de Bebida</label>
+                            <select id="bebida" name="bebida" required>
+                                <option value="" disabled selected hidden>Seleccionar Bebida</option>
+                                <option value="Gaseosa - Wisky - Agua">Gaseosa - Wisky - Agua</option>
+                                <option value="Cocktail - Wisky - Agua">Cocktail - Wisky - Agua</option>
+                                <option value="Gaseosa - Agua">Gaseosa - Agua</option>
+                                <option value="Gaseosa - Cocktail">Gaseosa - Cocktail</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postre">Tipo de Postre</label>
+                            <select id="postre" name="postre" required>
+                                <option value="" disabled selected hidden>Seleccionar Postre</option>
+                                <option value="Helado">Helado</option>
+                                <option value="Cupcakes">Cupcakes</option>
+                                <option value="Gelatina">Gelatina</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mesa_dulces">Mesa de dulces</label>
+                            <select id="mesa_dulces" name="mesa_dulces">
+                                <option value="" disabled selected hidden>Seleccionar Dulces</option>
+                                <option value="Gomitas, fresas con chocolate, bombombunes, galletas">Gomitas, fresas con chocolate, bombombunes, galletas</option>
+                                <option value="Gomitas, mentas, obleas">Gomitas, mentas, obleas</option>
+                                <option value="Masmelos, chocolates, barriletes">Masmelos, chocolates, barriletes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group flex-container-catering">
+                <div class="form-group">
+                    <label for="decoracion">Decoración</label>
+                    <select id="decoracion" name="decoracion" required>
+                        <option value="" data-text="" disabled selected hidden>Seleccionar Decoración</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="alquiler">Alquiler De Vestidos</label>
+                    <select id="alquiler" name="alquiler" required>
+                        <option value="" data-text="" disabled selected hidden>Seleccionar Alquiler</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="musica">Servicio Musical</label>
+                <select id="musica" name="musica" required>
+                    <option value="" data-text="" disabled selected hidden>Seleccionar Música</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div id="total-amount">Total: $0 COP</div>
+                <input type="hidden" name="total" id="total" required>
+            </div>
+
+            <div class="button-row">
+                <button type="button" class="button-cancel" onclick="cancelarFormulario()">Cancelar</button>
+                <button type="submit" class="button">Reservar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+     <!-- Footer -->
+     <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+        <div class="container pt-0">
+            <div class="row">
+                <div class="col-lg-6 pr-lg-5 mb-5">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                    </a>
+                    <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa, Colombia</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                    <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                    <!-- Mapa de Google -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Termina -->    
+  
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  
+  
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/counterup/counterup.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="lib/tempusdominus/js/moment.min.js"></script>
+      <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+      <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  
+      <!-- Contact Javascript File -->
+      <script src="mail/jqBootstrapValidation.min.js"></script>
+      <script src="mail/contact.js"></script>
+  
+      <!-- Template Javascript -->
+      <script src="/js/main.js"></script>
+      <script src="/js/cotizar/coti.js"></script>
+     
+  </body>
+  
+  </html>

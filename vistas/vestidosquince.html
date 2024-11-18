@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .whatsapp-btn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* Estilos para la sección de vestidos */
+        .dresses-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .dresses-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dress-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            width: 250px;
+        }
+
+        .dress-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dress-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .dress-info {
+            padding: 15px;
+        }
+
+        .dress-name {
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .dress-card select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 12px auto;
+        }
+    </style>
+</head>
+<body> 
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="eventos.html" class="nav-item nav-link">Eventos</a>
+                    <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Reservar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block" style="font-size: 1.2rem;"></span>
+                <a href="/login" id="login-btn" class="btn btn-primary d-none d-lg-block">Iniciar Sesión</a>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3">Mis reservas</a>                
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión </a>
+            </div>
+        </nav>
+    </div>
+
+
+   <!-- Sección de Vestidos -->
+    <div style="height: 120px;"></div>
+<section class="dresses-section">
+    <div class="container">
+        <h2 class="text-center mb-5" style="font-family: 'arial';
+    font-size: 1.7em;"> Nuestra colección de vestidos</h2>
+        <div class="dresses-container">
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/quincerosadoPNG.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido Rosa en corte en V</div>
+                    <select id="size1">
+                        <option value="">Tallas disponibles</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido Rosa en corte en V', 50000, 'size1')">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/vestidolila.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido Lila</div>
+                    <select id="size2">
+                        <option value="">Tallas disponibles</option>
+                        <option value="M">M</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido Lila', 60000, 'size2')">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/vestidonegro.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido con destellos Negro</div>
+                    <select id="size3">
+                        <option value="">Tallas disponibles</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido con destellos Negro', 70000, 'size3')">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/vestidofucia.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido Largo Fucsia</div>
+                    <select id="size4">
+                        <option value="">Tallas disponibles</option>
+                        <option value="S">S</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido Largo Fucsia', 55000, 'size4')">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/vestidoazulbb.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido Bombacho Azul bebe</div>
+                    <select id="size5">
+                        <option value="">Tallas disponibles</option>
+                        <option value="M">M</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido Bombacho Azul bebe', 65000, 'size5')">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="dress-card">
+                <div class="dress-image" style="background-image: url('img/vestidoscarchado.PNG');"></div>
+                <div class="dress-info">
+                    <div class="dress-name">Vestido Escarchado Azul</div>
+                    <select id="size6">
+                        <option value="">Tallas disponibles</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button class="btn btn-outline-primary" onclick="addToCartDress('Vestido Escarchado Azul', 70000, 'size6')">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function addToCartDress(dressName, dressPrice, sizeSelectId) {
+    // Obtener la talla seleccionada
+    const sizeSelect = document.getElementById(sizeSelectId);
+    const selectedSize = sizeSelect.value;
+
+    // Verificar si se seleccionó una talla
+    if (!selectedSize) {
+        alert("Por favor, selecciona una talla antes de añadir al carrito.");
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    const product = {
+        name: dressName + ` (Talla: ${selectedSize})`,
+        price: dressPrice,
+        quantity: 1
+    };
+
+    const existingProductIndex = cart.findIndex(item => item.name === product.name);
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+
+    // Almacenar mensaje de confirmación en sessionStorage
+    sessionStorage.setItem('cartMessage', `${dressName} (Talla: ${selectedSize}) ha sido añadido al carrito por $${dressPrice}.`);
+
+    // Redirigir a la página del carrito
+    window.location.href = 'carrito.html';
+}
+
+</script>
+ <!-- Footer -->
+ <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+    <div class="container pt-0">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                </a>
+                <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa-Boyacá, Colombia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                <!-- Mapa de Google -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Termina -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/session-info')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nombres) {
+                        // Ocultar el botón "Iniciar Sesión" y mostrar el nombre del usuario
+                        document.getElementById('login-btn').style.display = 'none';
+                        document.getElementById('user-names').textContent = `Hola, ${data.nombres}`;
+                        // Mostrar el botón "Cerrar Sesión"
+                        document.getElementById('cerrar-sesion-link').style.display = 'inline';
+                    } else {
+                        // Mostrar el botón "Iniciar Sesión" si no hay usuario autenticado
+                        document.getElementById('login-btn').style.display = 'inline';
+                        // Ocultar el botón "Cerrar Sesión"
+                        document.getElementById('cerrar-sesion-link').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error al obtener la información de la sesión:', error));
+        });
+
+        function cerrarSesion(event) {
+            event.preventDefault(); // Evitar la acción predeterminada del enlace
+            fetch('/logout') // Ruta para cerrar sesión
+                .then(response => {
+                    if (response.ok) {
+                        // Redirigir a la página principal después de cerrar sesión
+                        window.location.href = '/';
+                    } else {
+                        console.error('Error al cerrar sesión');
+                    }
+                })
+                .catch(error => console.error('Error al cerrar sesión:', error));
+        }
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

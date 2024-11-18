@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Boutique Angels</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Boutique Angels, eventos, catering, menú" name="keywords">
+    <meta content="Menú de Boutique Angels para eventos y catering" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Estilos para el menú */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .menu-section {
+            margin-bottom: 4rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .menu-section-title {
+            font-family: 'arial';
+            color: #c5a44f;
+            text-align: center;
+            font-size: 2.1rem;
+            margin: 0;
+            padding: 2rem 0;
+            background: linear-gradient(to right, #f1f1f1, white, #f1f1f1);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item-info {
+            padding: 1.5rem;
+        }
+        .menu-item-title {
+            font-family: 'Arial';
+            font-size: 1.4rem;
+            margin: 0 0 0.5rem;
+            color: #000000;
+        }
+        .menu-item-desc {
+            font-size: 1rem;
+            color: #332c2c;
+            margin: 0;
+        }
+        .whatsapp-btn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+        #login-btn,
+#reservas-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 8px 16px; /* Reduce el padding para hacer el botón más delgado */
+  font-weight: 400; /* Ajusta el grosor de la fuente, 400 es normal, 300 es más ligero */
+  border-width: 1px; /* Puedes ajustar el grosor del borde si es necesario */
+}
+
+
+    </style>
+</head>
+<body> 
+    <a href="https://wa.me/573133670007" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <img src="/img/Logoo.jpg" alt="Logo" style="width: 130px; height: auto;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="/" class="nav-item nav-link">Inicio</a>
+                    <a href="eventos.html" class="nav-item nav-link">Eventos</a>
+                    <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+                    <a href="/cotizar" class="nav-item nav-link">Reservar</a>
+                </div>
+                <span id="user-names" class="navbar-text d-none d-lg-block" style="font-size: 1.2rem;"></span>
+                <a href="/login" id="login-btn" class="btn btn-primary d-none d-lg-block">Iniciar Sesión</a>
+                <a href="/loginn" id="reservas-btn" class="btn btn-primary d-none d-lg-block ml-3">Mis reservas</a>                
+                <a href="#" id="cerrar-sesion-link" class="btn cerrar-sesion d-none d-lg-block" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión </a>
+            </div>
+        </nav>
+    </div>
+
+
+<!-- Menu Start -->
+<div style="height: 150px;"></div>
+<div class="menu-container">
+    <section class="menu-section">
+        <h2 class="menu-section-title">Arroces</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/arrozblanco.PNG" alt="Arroz Blanco">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Arroz Blanco</h3>
+                    <p class="menu-item-desc">Arroz blanco sencillo, perfecto para acompañar.</p>
+                    <button class="btn btn-outline-primary" id="addToCartArrozBlanco" onclick="addToCart(event, 'Arroz Blanco', 10000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/arrozverduras.PNG" alt="Arroz con Verduras">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Arroz con Verduras</h3>
+                    <p class="menu-item-desc">Arroz con zanahoria, arveja y pimientos.</p>
+                    <button class="btn btn-outline-primary" id="addToCartArrozVerduras" onclick="addToCart(event, 'Arroz con Verduras', 12000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/arrozcocacola.PNG" alt="Arroz con CocaCola">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Arroz con CocaCola</h3>
+                    <p class="menu-item-desc">Arroz con cocacola, uvas pasas y almendras o nueces.</p>
+                    <button class="btn btn-outline-primary" id="addToCartArrozCocaCola" onclick="addToCart(event, 'Arroz con CocaCola', 15000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/arrozverde.PNG" alt="Arroz Verde">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Arroz Verde</h3>
+                    <p class="menu-item-desc">Arroz con cilantro, espinacas y caldo vegetal.</p>
+                    <button class="btn btn-outline-primary" id="addToCartArrozVerde" onclick="addToCart(event, 'Arroz Verde', 13000)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="menu-section-title">Carnes</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/pollochampiñones.PNG" alt="Pollo Con salsa de champiñones">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Pollo Con salsa de champiñones</h3>
+                    <p class="menu-item-desc">Pechugas de pollo, champiñones frescos, y crema de leche.</p>
+                    <button class="btn btn-outline-primary" id="addToCartPollo" onclick="addToCart(event, 'Pollo Con salsa de champiñones', 20000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/Carnederes.PNG" alt="Carne de res">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Carne de Res</h3>
+                    <p class="menu-item-desc">Carne de res con salsa agridulce.</p>
+                    <button class="btn btn-outline-primary" id="addToCartCarneRes" onclick="addToCart(event, 'Carne de Res', 22000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/Cerdo.PNG" alt="Cerdo Agridulce">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Cerdo Agridulce</h3>
+                    <p class="menu-item-desc">Carne de cerdo con pimientos, piña, y salsa de soya.</p>
+                    <button class="btn btn-outline-primary" id="addToCartCerdo" onclick="addToCart(event, 'Cerdo Agridulce', 24000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/rellena.PNG" alt="Pechuga Rellena">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Pechuga Rellena</h3>
+                    <p class="menu-item-desc">Pechugas de pollo con espinacas, queso, nueces y pan rallado.</p>
+                    <button class="btn btn-outline-primary" id="addToCartPechugaRellena" onclick="addToCart(event, 'Pechuga Rellena', 23000)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="menu-section-title">Bebidas</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/agua.PNG" alt="Opcion 1">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 1</h3>
+                    <p class="menu-item-desc">Agua, Gaseosa y Wisky</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion1" onclick="addToCart(event, 'Opcion 1', 5000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/wisky.PNG" alt="Opcion 2">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 2</h3>
+                    <p class="menu-item-desc">Cocktail, Wisky y Agua</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion2" onclick="addToCart(event, 'Opcion 2', 7000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/gaseosaagua.PNG" alt="Opcion 3">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 3</h3>
+                    <p class="menu-item-desc">Gaseosa y Agua</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion3" onclick="addToCart(event, 'Opcion 3', 6000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/Cocktail.PNG" alt="Opcion 4">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 4</h3>
+                    <p class="menu-item-desc">Gaseosa y Cocktail</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion4" onclick="addToCart(event, 'Opcion 4', 6500)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="menu-section-title">Postres</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/helado.PNG" alt="Helado">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Helado</h3>
+                    <p class="menu-item-desc">Chocolate, Vainilla y Fresa</p>
+                    <button class="btn btn-outline-primary" id="addToCartHelado" onclick="addToCart(event, 'Helado', 8000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/Cupcake.PNG" alt="Cupcake">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Cupcake</h3>
+                    <p class="menu-item-desc">Vainilla, Chocolate y Limon</p>
+                    <button class="btn btn-outline-primary" id="addToCartCupcake" onclick="addToCart(event, 'Cupcake', 9000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/gelatina.PNG" alt="Gelatina">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Gelatina</h3>
+                    <p class="menu-item-desc">Fresa, Limon y Piña</p>
+                    <button class="btn btn-outline-primary" id="addToCartGelatina" onclick="addToCart(event, 'Gelatina', 7000)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="menu-section-title">Mesa de Postres</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/opcion1.PNG" alt="Opcion 1">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 1</h3>
+                    <p class="menu-item-desc">Gomitas, Fresas con chocolate, Paletas y Galletas</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion1Mesa" onclick="addToCart(event, 'Opcion 1', 11000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/opcion2.PNG" alt="Opcion 2">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 2</h3>
+                    <p class="menu-item-desc">Gomitas, Obleas y Mentas</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion2Mesa" onclick="addToCart(event, 'Opcion 2', 12000)">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/opcion3.PNG" alt="Opcion 3">
+                <div class="menu-item-info">
+                    <h3 class="menu-item-title">Opcion 3</h3>
+                    <p class="menu-item-desc">Masmelos, Chocolates y Barriletes</p>
+                    <button class="btn btn-outline-primary" id="addToCartOpcion3Mesa" onclick="addToCart(event, 'Opcion 3', 13000)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Menu End -->
+
+<script>
+    function addToCart(event, productName, productPrice) {
+        // Recuperar el carrito actual
+        let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Crear el nuevo producto
+        const product = {
+            name: productName,
+            price: productPrice,
+            quantity: 1
+        };
+
+        // Verificar si el producto ya está en el carrito
+        const existingProductIndex = cart.findIndex(item => item.name === productName);
+        if (existingProductIndex > -1) {
+            // Si ya existe, incrementar la cantidad
+            cart[existingProductIndex].quantity += 1;
+        } else {
+            // Si no existe, agregarlo al carrito
+            cart.push(product);
+        }
+
+        // Almacenar la lista actualizada en localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cart));
+
+        // Redirigir a la página del carrito
+        window.location.href = 'carrito.html';
+    }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/session-info')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nombres) {
+                        // Ocultar el botón "Iniciar Sesión" y mostrar el nombre del usuario
+                        document.getElementById('login-btn').style.display = 'none';
+                        document.getElementById('user-names').textContent = `Hola, ${data.nombres}`;
+                        // Mostrar el botón "Cerrar Sesión"
+                        document.getElementById('cerrar-sesion-link').style.display = 'inline';
+                    } else {
+                        // Mostrar el botón "Iniciar Sesión" si no hay usuario autenticado
+                        document.getElementById('login-btn').style.display = 'inline';
+                        // Ocultar el botón "Cerrar Sesión"
+                        document.getElementById('cerrar-sesion-link').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error al obtener la información de la sesión:', error));
+        });
+
+        function cerrarSesion(event) {
+            event.preventDefault(); // Evitar la acción predeterminada del enlace
+            fetch('/logout') // Ruta para cerrar sesión
+                .then(response => {
+                    if (response.ok) {
+                        // Redirigir a la página principal después de cerrar sesión
+                        window.location.href = '/';
+                    } else {
+                        console.error('Error al cerrar sesión');
+                    }
+                })
+                .catch(error => console.error('Error al cerrar sesión:', error));
+        }
+</script>
+
+    <!-- Footer Start -->
+    <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+        <div  class="container pt-0">
+            <div class="row">
+                <div class="col-lg-6 pr-lg-5 mb-5">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="mb-3 text-white"><span class="text-primary">Boutique</span> Angels</h1>
+                    </a>
+                    <p>En Boutique Angels, organizamos eventos personalizados para hacerlos inolvidables. Nuestro equipo de expertos garantiza un servicio de alta calidad, cuidando cada detalle con esmero.</p>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Paipa-Boyacá, Colombia</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+57 313 3670007</p>
+                    <p><i class="fa fa-envelope mr-2"></i>boutique@gmail.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/boutiqueangels.paipa"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/boutique_angels_paipa"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5 d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                    <!-- Mapa de Google -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.53961727838!2d-73.1160018162797!3d5.779167416437327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a6ba803ca3b17%3A0x6c54ce3e690ce03b!2sBoutique%20Angels%20Paipa!5e0!3m2!1ses-419!2sco!4v1727305672489!5m2!1ses-419!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0 text-white">&copy; <a href="#">Boutique Angels</a>. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

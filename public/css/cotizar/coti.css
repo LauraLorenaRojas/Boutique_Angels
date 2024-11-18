@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cambiar color de fondo de la página */
+    color: black;
+}
+
+#login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh; 
+    flex-direction: column; 
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo del contenedor */
+}
+
+
+.formulario-cotizador {
+    max-width: 800px; /* Reducir el ancho máximo */
+    margin: 0 auto;
+    padding: 30px; /* Ajustar el padding */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.formulario-cotizador h1 {
+    font-size: 2em; /* Reducir tamaño de fuente del título */
+    color: #c5a44f;
+    margin-bottom: 20px; /* Ajustar margen inferior */
+    text-align: center;
+}
+
+.formulario-cotizador .form-group {
+    margin-bottom: 20px; /* Ajustar margen inferior */
+}
+
+.formulario-cotizador .form-group label {
+    display: block;
+    margin-bottom: 5px; /* Ajustar margen inferior */
+}
+
+.formulario-cotizador .form-group select,
+.formulario-cotizador .form-group input {
+    width: 100%;
+    padding: 12px; /* Reducir padding */
+    border: 1px solid #c5a44f85;
+    border-radius: 5px; /* Ajustar el radio del borde */
+    font-family: 'Arial', sans-serif;
+    color: #1c1818fa;
+    font-size: 16px; /* Reducir tamaño de fuente */
+}
+
+.formulario-cotizador .form-group select:focus,
+.formulario-cotizador .form-group input:focus {
+    outline: none;
+    border-color: #c5a44f;
+}
+
+.formulario-cotizador .total-row {
+    font-weight: 100;
+    margin-top: 20px; /* Ajustar margen superior */
+    font-size: 20px; /* Reducir tamaño de fuente */
+    color: #c5a44f;
+}
+
+.formulario-cotizador .button-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-cotizador .button, 
+.formulario-cotizador .button-cancel {
+    margin-top: 20px; /* Ajustar margen superior */
+    padding: 12px 25px; /* Reducir padding */
+    background-color: #c5a44f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px; /* Reducir tamaño de fuente */
+}
+
+.formulario-cotizador .button:focus,
+.formulario-cotizador .button-cancel:focus {
+    outline: none;
+}
+
+/* Estilo del select */
+.formulario-cotizador select {
+    padding: 10px; /* Ajustar padding */
+    border: 1px solid #eeece7; 
+    border-radius: 5px;
+    background-color: white; 
+    color: black; 
+    font-size: 16px; /* Reducir tamaño de fuente */
+}
+
+.formulario-cotizador select:focus {
+    border-color: #c5a44f; 
+    outline: none; 
+}
+
+.formulario-cotizador select:hover {
+    background-color: rgb(255, 255, 255); 
+    color: rgb(29, 24, 24); 
+}
+
+.formulario-cotizador option {
+    background-color: white; 
+    color: black; 
+}
+
+.formulario-cotizador option:hover {
+    background-color: #c5a44f; 
+    color: white; 
+}
+
+.formulario-cotizador option:checked {
+    background-color: #c5a44f; 
+    color: white; 
+}
+
+/* Estilos para alinear selects de arroz y carne */
+.formulario-cotizador .form-row {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.formulario-cotizador .form-row .form-group {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.formulario-cotizador .form-row .form-group:last-child {
+    margin-right: 0; 
+}
+
+.formulario-cotizador .form-row select {
+    width: 100%; 
+}
+
+/* Estilo adicional para el mensaje de error */
+#error {
+    color: red;
+    display: none;
+}
+
+/* Estilos para alinear "Cantidad de Personas" y "Eventos" */
+.flex-container {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 20px; /* Ajustar margen inferior */
+}
+
+.flex-container .form-group {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.flex-container .form-group:last-child {
+    margin-right: 0; 
+}
+
+/* Estilos para alinear "Catering" y "Decoración" */
+.flex-container-catering {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-bottom: 20px; /* Ajustar espaciado inferior */
+}
+
+.flex-container-catering .form-group {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.flex-container-catering .form-group:last-child {
+    margin-right: 0; 
+}
+
+.password-container {
+    position: relative; /* Posiciona el contenedor relativamente */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta según tu diseño */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.error-message {
+    margin-top: 5px; /* Asegúrate de que los mensajes no se superpongan */
+    color: red;
+}
+
+.error-message {
+    margin-top: 5px;
+    color: red;
+    font-size: 12px; /* Ajusta según sea necesario */
+}
